@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# remove folders
+bin/
+
 # Log file
 *.log
 

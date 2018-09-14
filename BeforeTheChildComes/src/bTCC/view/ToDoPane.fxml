@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefWidth="867.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bTCC.controller.ToDoController">
+   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="865.0">
+         <children>
+            <Button fx:id="addEvent" layoutX="676.0" layoutY="12.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="25.0" prefWidth="70.0" text="zapisz" />
+            <DatePicker fx:id="datePicker" layoutX="60.0" layoutY="12.0" prefHeight="25.0" prefWidth="158.0" />
+            <TextField fx:id="eventDescription" layoutX="238.0" layoutY="12.0" prefHeight="25.0" prefWidth="420.0" promptText="wpisz treść zadania..." />
+            <Separator layoutX="48.0" layoutY="2.0" orientation="VERTICAL" prefHeight="48.0" prefWidth="12.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="48.0" AnchorPane.topAnchor="2.0" />
+            <Separator layoutX="232.0" orientation="VERTICAL" prefHeight="48.0" prefWidth="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="232.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="returnToMenu" layoutX="8.0" layoutY="14.0" mnemonicParsing="false" onAction="#returnToMenu" text="&lt;--" />
+            <Separator layoutX="658.0" layoutY="2.0" orientation="VERTICAL" prefHeight="48.0" prefWidth="6.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="658.0" AnchorPane.topAnchor="2.0" />
+            <Button fx:id="deleteEvent" layoutX="774.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="25.0" prefWidth="70.0" text="usuń" />
+         </children>
+      </AnchorPane>
+      <ListView fx:id="eventList" prefHeight="570.0" prefWidth="865.0" />
+   </items>
+</SplitPane>
