@@ -30,17 +30,13 @@ public class Reader implements AutoCloseable {
 	public void close() throws Exception {
 		bufferedReader.close();
 		fileReader.close();
-
 	}
 
 	public void readItemListFromFile(ObservableList<Items> itemList) throws NumberFormatException, IOException {
 		String inputFromFile;
-		double doubleInput;
 		while ((inputFromFile = bufferedReader.readLine()) != null) {
-			doubleInput = Double.parseDouble(bufferedReader.readLine());
+			double doubleInput = Double.parseDouble(bufferedReader.readLine());
 			itemList.add(new Items(inputFromFile, doubleInput));
 		}
-
 	}
-
 }

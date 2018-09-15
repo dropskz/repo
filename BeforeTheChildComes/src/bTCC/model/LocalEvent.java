@@ -1,21 +1,24 @@
 package bTCC.model;
 
+import java.time.LocalDate;
+
+
 public class LocalEvent {
 	private String description;
-	private String date;
+	private LocalDate date;
 	
 	public LocalEvent() {}
 	
-	public LocalEvent(String date, String desc) {
+	public LocalEvent(LocalDate date, String desc) {
 		this.setDate(date);
 		this.setDescription(desc);
 	}
 
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

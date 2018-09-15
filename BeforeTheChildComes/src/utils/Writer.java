@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 import bTCC.model.Items;
+import bTCC.model.LocalEvent;
 
 public class Writer implements AutoCloseable {
 
@@ -27,32 +28,20 @@ public class Writer implements AutoCloseable {
 		fileWriter.close();
 	}
 
-	public void saveTaskListToFile(List<?> list) throws IOException {
+	public void saveTaskListToFile(List<LocalEvent> list) throws IOException {
 		for (int i = 0; i < list.size(); i++) {
 			bufferedWriter.write(list.get(i).toString());
 			bufferedWriter.newLine();
+			
 		}
 	}
 
 	public void saveItemListToFile(List<Items> list) throws IOException {
 		for (int i = 0; i < list.size(); i++) {
-			saveItemToFile(list, i);
+			bufferedWriter.write(list.get(i).getItemName());
+			bufferedWriter.newLine();
+			bufferedWriter.write(String.valueOf(list.get(i).getPrice()));
+			bufferedWriter.newLine();
 		}
 	}
-
-	private void saveItemToFile(List<Items> list, int i) throws IOException {
-		writeItemName(list, i);
-		writeItemPrice(list, i);
-	}
-
-	private void writeItemPrice(List<Items> list, int i) throws IOException {
-		bufferedWriter.write(String.valueOf(list.get(i).getPrice()));
-		bufferedWriter.newLine();
-	}
-
-	private void writeItemName(List<Items> list, int i) throws IOException {
-		bufferedWriter.write(list.get(i).getItemName());
-		bufferedWriter.newLine();
-	}
-
 }
