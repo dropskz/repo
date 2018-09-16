@@ -1,7 +1,6 @@
 package utils;
 
 import java.io.IOException;
-
 import bTCC.model.AlertBox;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,10 +23,9 @@ public class CreateThePane {
 	}
 
 	public void makeNewPane(Button buttonName, String paneName) {
-		stage = (Stage) buttonName.getScene().getWindow();
+		stage = (Stage) buttonName.getScene().getWindow(); 
 		createPageContent(paneName);
 	}
-
 
 	private void createPageContent(String paneName) {
 		makeNewScene(paneName);
@@ -53,16 +51,12 @@ public class CreateThePane {
 	private void closeWindowRequest() {
 		stage.setOnCloseRequest(e -> {
 			e.consume();
-			closeProgram();
+			openAlertWindow();
 		});
 	}
 
-	private void closeProgram() {
-		boolean result = AlertBox.display("Awaryjne zamykanie programu",
-				"Zamknięncie aplikacji spowoduje utratę danych\n      sesji, czy mimo to chcesz kontunuować");
-		if (result) {
-			stage.close();
-		}
-	}
-	
+	private void openAlertWindow() {
+		AlertBox alertBox = new AlertBox();
+		alertBox.makeNewPane();
+	}	
 }

@@ -52,5 +52,4 @@ public class MainController implements Initializable {
 		pane = new CreateThePane();
 		pane.makeNewPane(button, path);
 	}
-
 }

@@ -29,5 +29,4 @@ public class Items {
 		
 		return itemName + " " + price;
 	}
-	
 }

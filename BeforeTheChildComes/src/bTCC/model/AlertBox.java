@@ -1,54 +1,45 @@
 package bTCC.model;
 
-import javafx.geometry.Pos;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class AlertBox {
+	private static Stage stage;
+	private Parent root;
+	private Scene scene;
 	
-	static boolean answer;
-		
-	
-	public static boolean display(String title, String message) {
-		Stage window = new Stage();
-		
-		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle(title);	
-		window.setWidth(400);
-		window.setHeight(200);
+	public AlertBox() {}
 
-		Label label = new Label();
-		label.setText(message);
-		
-		Button yesButton = new Button("Yes");
-		
-		yesButton.setPrefSize(50, 25);
-		
-		Button noButton = new Button("No");
-		noButton.setPrefSize(50, 25);
-		
-		yesButton.setOnAction(e -> {
-			answer = true;
-			window.close();
-		});
-		
-		noButton.setOnAction(e -> {
-			answer = false;
-			window.close();
-		});
-		
-		VBox layout = new VBox(10);
-		layout.getChildren().addAll(label, yesButton, noButton);
-		layout.setAlignment(Pos.CENTER);
-		
-		Scene scene = new Scene(layout);
-		window.setScene(scene);
-		window.showAndWait();
-		
-		return answer;
+	public void makeNewPane() {
+		stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		createPageContent();	
 	}
+
+	private void createPageContent() {
+		makeNewScene();
+		showNewStage(scene);
+	}
+
+	private void makeNewScene() {
+		try {
+			root = FXMLLoader.load(getClass().getResource("/bTCC/view/AlertBox.fxml"));
+			scene = new Scene(root);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void showNewStage(Scene scene) {
+		stage.setScene(scene);
+		stage.setTitle("Awaryjne zamykanie aplikacji");
+		stage.show();
+	}
+	public static void close() {
+		stage.close();
+	}	
 }

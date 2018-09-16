@@ -136,5 +136,4 @@ public class ToDoController implements Initializable {
 		dateTable.setCellValueFactory(new PropertyValueFactory<>("date"));
 		descriptionTable.setCellValueFactory(new PropertyValueFactory<>("description"));
 	}
-
 }

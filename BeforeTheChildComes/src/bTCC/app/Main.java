@@ -12,9 +12,7 @@ public class Main extends Application {
 
 		CreateThePane pane = new CreateThePane();
 		pane.createMainPane(primaryStage, "MainPane.fxml");
-		createNewFile();
-		
-		
+		createNewFile();		
 	}
 
 	private void createNewFile() {
@@ -22,11 +20,8 @@ public class Main extends Application {
 		file.createNewFile(file.getItemFile());
 		file.createNewFile(file.getToDoFile());
 	}
-
-
-
+	
 	public static void main(String[] args) {
 		launch(args);
-
 	}
 }

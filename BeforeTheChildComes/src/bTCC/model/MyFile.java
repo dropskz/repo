@@ -11,17 +11,15 @@ public class MyFile {
 	
 	public MyFile() {
 			toDoFile = new File(TASK_FILE_NAME);
-			itemFile = new File(ITEM_FILE_NAME);
-		
+			itemFile = new File(ITEM_FILE_NAME);		
 	}
-
+	
 	public void createNewFile(File file) {
 		
 		try {
 			if(!file.exists()) {
 				file.createNewFile();
 			}
-			
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -34,5 +32,4 @@ public class MyFile {
 	public File getItemFile() {
 		return itemFile;
 	}
-
 }

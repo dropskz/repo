@@ -78,11 +78,6 @@ public class ItemsController implements Initializable {
 		}
 	}
 
-	private void selectTable() {
-		taskTable.setCellValueFactory(new PropertyValueFactory<>("itemName"));
-		priceTable.setCellValueFactory(new PropertyValueFactory<>("price"));
-	}
-
 	private boolean inputTextIsNotNull() {
 		return eventDescription.getText() != null;
 	}
@@ -100,6 +95,15 @@ public class ItemsController implements Initializable {
 			return false;
 		}
 	}
+	private double checkPriceValue() {
+		double itemPriceTextToDouble;
+		if (isPriceEmpty()) {
+			itemPriceTextToDouble = 0;
+		} else {
+			itemPriceTextToDouble = parseToDouble();
+		}
+		return itemPriceTextToDouble;
+	}
 
 	private double parseToDouble() {
 		String newPrice = changeCommaIntoDot();
@@ -111,15 +115,6 @@ public class ItemsController implements Initializable {
 		return itemPrice.getText().replace(",", ".");
 	}
 
-	private double checkPriceValue() {
-		double itemPriceTextToDouble;
-		if (isPriceEmpty()) {
-			itemPriceTextToDouble = 0;
-		} else {
-			itemPriceTextToDouble = parseToDouble();
-		}
-		return itemPriceTextToDouble;
-	}
 
 	private boolean isPriceEmpty() {
 		return itemPrice.getText().isEmpty();
@@ -145,5 +140,9 @@ public class ItemsController implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	private void selectTable() {
+		taskTable.setCellValueFactory(new PropertyValueFactory<>("itemName"));
+		priceTable.setCellValueFactory(new PropertyValueFactory<>("price"));
 	}
 }

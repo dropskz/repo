@@ -34,7 +34,5 @@ public class LocalEvent {
 	public String toString() {
 		
 		return this.getDate() +  "   " + this.getDescription();
-	}
-	
-	
+	}	
 }
